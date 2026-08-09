@@ -12,48 +12,99 @@ const weddingMusic = document.getElementById("weddingMusic");
 
 if (weddingMusic) {
 
+    weddingMusic.loop = true;
     weddingMusic.volume = 0.7;
 
-    // محاولة التشغيل التلقائي
-    const playMusic = () => {
+    let musicStarted = false;
 
-        weddingMusic.play().catch(() => {
-            // بعض المتصفحات تمنع التشغيل التلقائي
-            // وسيتم تشغيلها بعد أول تفاعل من المستخدم
-        });
+    function startWeddingMusic() {
 
-    };
+        if (musicStarted) {
+            return;
+        }
 
-    playMusic();
+        const playPromise = weddingMusic.play();
+
+        if (playPromise !== undefined) {
+
+            playPromise
+                .then(() => {
+
+                    musicStarted = true;
+
+                    console.log(
+                        "Wedding music started successfully"
+                    );
+
+                })
+                .catch(() => {
+
+                    console.log(
+                        "Autoplay blocked - waiting for user interaction"
+                    );
+
+                });
+        }
+    }
 
 
-    // تشغيل الأغنية عند أول تفاعل
-    const startMusicAfterInteraction = () => {
+    /* محاولة التشغيل تلقائيًا */
 
-        weddingMusic.play().catch(() => {});
+    window.addEventListener(
+        "load",
+        () => {
 
-        document.removeEventListener(
-            "click",
-            startMusicAfterInteraction
-        );
+            startWeddingMusic();
 
-        document.removeEventListener(
-            "touchstart",
-            startMusicAfterInteraction
-        );
-
-    };
-
-    document.addEventListener(
-        "click",
-        startMusicAfterInteraction,
-        { once: true }
+        }
     );
+
+
+    /* Android:
+       أول لمسة في أي مكان تشغل الأغنية */
 
     document.addEventListener(
         "touchstart",
-        startMusicAfterInteraction,
-        { once: true }
+        () => {
+
+            startWeddingMusic();
+
+        },
+        {
+            once: true,
+            passive: true
+        }
+    );
+
+
+    /* Android / Chrome */
+
+    document.addEventListener(
+        "pointerdown",
+        () => {
+
+            startWeddingMusic();
+
+        },
+        {
+            once: true,
+            passive: true
+        }
+    );
+
+
+    /* الكمبيوتر */
+
+    document.addEventListener(
+        "click",
+        () => {
+
+            startWeddingMusic();
+
+        },
+        {
+            once: true
+        }
     );
 
 }
