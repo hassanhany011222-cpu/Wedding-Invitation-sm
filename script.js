@@ -1,297 +1,176 @@
 /* =====================================================
-   WEDDING INVITATION
-   MOHAMED & SAMAH
+   Wedding Invitation
+   Mohamed & Samah
 ===================================================== */
 
 
 /* =====================================================
-   MUSIC
+   1. MUSIC
 ===================================================== */
 
-const weddingMusic =
-    document.getElementById("weddingMusic");
+const weddingMusic = document.getElementById("weddingMusic");
 
-
-let musicStarted = false;
-
-
-function startWeddingMusic() {
-
-    if (!weddingMusic) {
-        return;
-    }
-
-
-    if (musicStarted) {
-        return;
-    }
-
+if (weddingMusic) {
 
     weddingMusic.volume = 0.7;
 
-    weddingMusic.loop = true;
+    // محاولة التشغيل التلقائي
+    const playMusic = () => {
+
+        weddingMusic.play().catch(() => {
+            // بعض المتصفحات تمنع التشغيل التلقائي
+            // وسيتم تشغيلها بعد أول تفاعل من المستخدم
+        });
+
+    };
+
+    playMusic();
 
 
-    const playPromise =
-        weddingMusic.play();
+    // تشغيل الأغنية عند أول تفاعل
+    const startMusicAfterInteraction = () => {
 
+        weddingMusic.play().catch(() => {});
 
-    if (playPromise !== undefined) {
+        document.removeEventListener(
+            "click",
+            startMusicAfterInteraction
+        );
 
-        playPromise
-            .then(() => {
+        document.removeEventListener(
+            "touchstart",
+            startMusicAfterInteraction
+        );
 
-                musicStarted = true;
+    };
 
-                console.log(
-                    "Wedding music started"
-                );
+    document.addEventListener(
+        "click",
+        startMusicAfterInteraction,
+        { once: true }
+    );
 
-            })
-            .catch(() => {
-
-                console.log(
-                    "Browser blocked autoplay"
-                );
-
-            });
-
-    }
-
-}
-
-
-/*
-    محاولة التشغيل مباشرة
-*/
-
-startWeddingMusic();
-
-
-
-/*
-    تشغيل الأغنية عند أول
-    تفاعل مع الصفحة.
-
-    لا نجعل زر تأكيد الحضور
-    هو المسؤول عن تشغيلها.
-*/
-
-function musicInteraction(event) {
-
-    if (
-        event.target &&
-        event.target.closest &&
-        event.target.closest(
-            "#attendanceButton"
-        )
-    ) {
-
-        return;
-
-    }
-
-
-    startWeddingMusic();
+    document.addEventListener(
+        "touchstart",
+        startMusicAfterInteraction,
+        { once: true }
+    );
 
 }
-
-
-document.addEventListener(
-    "click",
-    musicInteraction,
-    {
-        once: true
-    }
-);
-
-
-document.addEventListener(
-    "touchstart",
-    musicInteraction,
-    {
-        once: true,
-        passive: true
-    }
-);
-
-
-window.addEventListener(
-    "scroll",
-    function() {
-
-        startWeddingMusic();
-
-    },
-    {
-        once: true,
-        passive: true
-    }
-);
-
 
 
 /* =====================================================
-   COUNTDOWN
+   2. COUNTDOWN
 ===================================================== */
 
-
-/*
-    تاريخ الفرح:
-
-    الثلاثاء
-    22 سبتمبر 2026
-    الساعة 9 مساءً
-*/
-
-
-const weddingDate =
-    new Date(
-        "September 22, 2026 21:00:00"
-    ).getTime();
-
+// موعد الفرح
+const weddingDate = new Date(
+    "September 22, 2026 21:00:00"
+).getTime();
 
 
 function updateCountdown() {
 
-    const now =
-        new Date().getTime();
+    const now = new Date().getTime();
+
+    const difference = weddingDate - now;
 
 
-    const difference =
-        weddingDate - now;
-
-
+    // لو الموعد انتهى
     if (difference <= 0) {
 
-        document.getElementById(
-            "days"
-        ).textContent = "00";
-
-
-        document.getElementById(
-            "hours"
-        ).textContent = "00";
-
-
-        document.getElementById(
-            "minutes"
-        ).textContent = "00";
-
-
-        document.getElementById(
-            "seconds"
-        ).textContent = "00";
-
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
 
         return;
 
     }
 
 
-    const days =
-        Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
 
 
-    const hours =
-        Math.floor(
-            (
-                difference %
-                (1000 * 60 * 60 * 24)
-            ) /
-            (1000 * 60 * 60)
-        );
+    const hours = Math.floor(
+        (difference %
+            (1000 * 60 * 60 * 24))
+        /
+        (1000 * 60 * 60)
+    );
 
 
-    const minutes =
-        Math.floor(
-            (
-                difference %
-                (1000 * 60 * 60)
-            ) /
-            (1000 * 60)
-        );
+    const minutes = Math.floor(
+        (difference %
+            (1000 * 60 * 60))
+        /
+        (1000 * 60)
+    );
 
 
-    const seconds =
-        Math.floor(
-            (
-                difference %
-                (1000 * 60)
-            ) /
-            1000
-        );
+    const seconds = Math.floor(
+        (difference %
+            (1000 * 60))
+        /
+        1000
+    );
 
 
-    document.getElementById(
-        "days"
-    ).textContent =
-        String(days).padStart(2,"0");
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
 
 
-    document.getElementById(
-        "hours"
-    ).textContent =
-        String(hours).padStart(2,"0");
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
 
 
-    document.getElementById(
-        "minutes"
-    ).textContent =
-        String(minutes).padStart(2,"0");
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
 
 
-    document.getElementById(
-        "seconds"
-    ).textContent =
-        String(seconds).padStart(2,"0");
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
 
 }
 
 
+// تشغيل العداد فورًا
 updateCountdown();
 
 
+// تحديث كل ثانية
 setInterval(
     updateCountdown,
     1000
 );
 
 
-
 /* =====================================================
-   SCROLL REVEAL
+   3. SCROLL REVEAL
 ===================================================== */
 
-const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
+const revealSections =
+    document.querySelectorAll(".section-reveal");
 
 
 const revealObserver =
     new IntersectionObserver(
 
-        function(entries) {
+        (entries) => {
 
-            entries.forEach(
-                function(entry) {
+            entries.forEach((entry) => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                if (entry.isIntersecting) {
 
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                    }
+                    entry.target.classList.add(
+                        "visible"
+                    );
 
                 }
-            );
+
+            });
 
         },
 
@@ -302,20 +181,15 @@ const revealObserver =
     );
 
 
-revealElements.forEach(
-    function(element) {
+revealSections.forEach((section) => {
 
-        revealObserver.observe(
-            element
-        );
+    revealObserver.observe(section);
 
-    }
-);
-
+});
 
 
 /* =====================================================
-   RSVP
+   4. RSVP BUTTON
 ===================================================== */
 
 const attendanceButton =
@@ -348,9 +222,8 @@ const modalCloseButton =
     );
 
 
-
 /* =====================================================
-   CELEBRATION
+   5. HEARTS + FLOWERS EXPLOSION
 ===================================================== */
 
 function createCelebration() {
@@ -361,21 +234,19 @@ function createCelebration() {
 
 
     const symbols = [
-
         "♥",
         "♡",
         "💜",
         "🤎",
         "🌸",
         "🌹",
-        "🌷",
         "✦",
         "✨"
-
     ];
 
 
-    const numberOfItems = 75;
+    // عدد العناصر
+    const numberOfItems = 70;
 
 
     for (
@@ -384,17 +255,15 @@ function createCelebration() {
         i++
     ) {
 
-
         const item =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
 
 
         item.className =
             "celebration-item";
 
 
+        // اختيار رمز عشوائي
         item.textContent =
             symbols[
                 Math.floor(
@@ -404,18 +273,15 @@ function createCelebration() {
             ];
 
 
-        /*
-            نقطة البداية
-        */
-
+        // نقطة بداية قريبة من الزر
         const startX =
-            30 +
-            Math.random() * 40;
+            35 +
+            Math.random() * 30;
 
 
         const startY =
-            48 +
-            Math.random() * 12;
+            55 +
+            Math.random() * 10;
 
 
         item.style.left =
@@ -426,20 +292,13 @@ function createCelebration() {
             startY + "%";
 
 
-        /*
-            اتجاه الانفجار
-        */
-
+        // اتجاه الانفجار
         const x =
-            Math.random() *
-            700 -
-            350;
+            (Math.random() * 700) - 350;
 
 
         const y =
-            Math.random() *
-            650 -
-            400;
+            (Math.random() * 600) - 400;
 
 
         item.style.setProperty(
@@ -454,25 +313,19 @@ function createCelebration() {
         );
 
 
-        /*
-            حجم العنصر
-        */
-
+        // أحجام مختلفة
         const size =
-            16 +
-            Math.random() * 25;
+            18 +
+            Math.random() * 28;
 
 
         item.style.fontSize =
             `${size}px`;
 
 
-        /*
-            تأخير بسيط
-        */
-
+        // تأخير بسيط
         item.style.animationDelay =
-            `${Math.random() * 0.2}s`;
+            `${Math.random() * 0.25}s`;
 
 
         celebrationContainer.appendChild(
@@ -480,23 +333,20 @@ function createCelebration() {
         );
 
 
-        setTimeout(
-            function() {
+        // حذف العنصر بعد انتهاء الحركة
+        setTimeout(() => {
 
-                item.remove();
+            item.remove();
 
-            },
-            2400
-        );
+        }, 2300);
 
     }
 
 }
 
 
-
 /* =====================================================
-   OPEN MODAL
+   6. OPEN MODAL
 ===================================================== */
 
 function openAttendanceModal() {
@@ -523,9 +373,8 @@ function openAttendanceModal() {
 }
 
 
-
 /* =====================================================
-   CLOSE MODAL
+   7. CLOSE MODAL
 ===================================================== */
 
 function closeAttendanceModal() {
@@ -552,39 +401,36 @@ function closeAttendanceModal() {
 }
 
 
-
 /* =====================================================
-   ATTENDANCE BUTTON
+   8. ATTENDANCE BUTTON ACTION
 ===================================================== */
 
 if (attendanceButton) {
 
     attendanceButton.addEventListener(
         "click",
-        function() {
+        () => {
+
+            // تشغيل الموسيقى لو المتصفح منعها
+            if (weddingMusic) {
+
+                weddingMusic.play().catch(
+                    () => {}
+                );
+
+            }
 
 
-            /*
-                لا نشغل الأغنية هنا.
-
-                عند الضغط:
-                1 - انفجار قلوب وورود
-                2 - انتظار
-                3 - ظهور الصندوق
-            */
-
-
+            // انفجار القلوب والورود
             createCelebration();
 
 
-            setTimeout(
-                function() {
+            // ننتظر لحظة قبل ظهور الصندوق
+            setTimeout(() => {
 
-                    openAttendanceModal();
+                openAttendanceModal();
 
-                },
-                1200
-            );
+            }, 1200);
 
         }
     );
@@ -592,9 +438,8 @@ if (attendanceButton) {
 }
 
 
-
 /* =====================================================
-   CLOSE MODAL
+   9. CLOSE BUTTON
 ===================================================== */
 
 if (closeModal) {
@@ -617,20 +462,20 @@ if (modalCloseButton) {
 }
 
 
-
 /* =====================================================
-   CLICK OUTSIDE
+   10. CLICK OUTSIDE MODAL
 ===================================================== */
 
 if (attendanceModal) {
 
     attendanceModal.addEventListener(
         "click",
-        function(event) {
+        (event) => {
 
             if (
-                event.target ===
-                attendanceModal
+                event.target.classList.contains(
+                    "modal-overlay"
+                )
             ) {
 
                 closeAttendanceModal();
@@ -643,18 +488,15 @@ if (attendanceModal) {
 }
 
 
-
 /* =====================================================
-   ESC
+   11. ESC KEY
 ===================================================== */
 
 document.addEventListener(
     "keydown",
-    function(event) {
+    (event) => {
 
-        if (
-            event.key === "Escape"
-        ) {
+        if (event.key === "Escape") {
 
             closeAttendanceModal();
 
@@ -664,26 +506,32 @@ document.addEventListener(
 );
 
 
-
 /* =====================================================
-   IMAGE CHECK
+   12. SMOOTH SCROLL
 ===================================================== */
 
-const mainImage =
+document.documentElement.style.scrollBehavior =
+    "smooth";
+
+
+/* =====================================================
+   13. PREVENT BROKEN IMAGE LOOK
+===================================================== */
+
+const weddingImage =
     document.querySelector(
         ".photo-frame img"
     );
 
 
-if (mainImage) {
+if (weddingImage) {
 
-    mainImage.addEventListener(
+    weddingImage.addEventListener(
         "error",
-        function() {
+        () => {
 
-            console.log(
-                "her-photo.jpg not found"
-            );
+            weddingImage.style.display =
+                "none";
 
         }
     );
