@@ -8,105 +8,29 @@
    1. MUSIC
 ===================================================== */
 
-const weddingMusic = document.getElementById("weddingMusic");
+const music = document.getElementById("weddingMusic");
 
-if (weddingMusic) {
+if (music) {
+    music.loop = true;
+    music.volume = 0.7;
 
-    weddingMusic.loop = true;
-    weddingMusic.volume = 0.7;
-
-    let musicStarted = false;
-
-    function startWeddingMusic() {
-
-        if (musicStarted) {
-            return;
-        }
-
-        const playPromise = weddingMusic.play();
-
-        if (playPromise !== undefined) {
-
-            playPromise
-                .then(() => {
-
-                    musicStarted = true;
-
-                    console.log(
-                        "Wedding music started successfully"
-                    );
-
-                })
-                .catch(() => {
-
-                    console.log(
-                        "Autoplay blocked - waiting for user interaction"
-                    );
-
-                });
-        }
+    function playMusic() {
+        music.play()
+            .then(() => {
+                console.log("Music started");
+            })
+            .catch((error) => {
+                console.log("Music blocked:", error);
+            });
     }
 
+    // محاولة التشغيل تلقائيًا
+    window.addEventListener("load", playMusic);
 
-    /* محاولة التشغيل تلقائيًا */
-
-    window.addEventListener(
-        "load",
-        () => {
-
-            startWeddingMusic();
-
-        }
-    );
-
-
-    /* Android:
-       أول لمسة في أي مكان تشغل الأغنية */
-
-    document.addEventListener(
-        "touchstart",
-        () => {
-
-            startWeddingMusic();
-
-        },
-        {
-            once: true,
-            passive: true
-        }
-    );
-
-
-    /* Android / Chrome */
-
-    document.addEventListener(
-        "pointerdown",
-        () => {
-
-            startWeddingMusic();
-
-        },
-        {
-            once: true,
-            passive: true
-        }
-    );
-
-
-    /* الكمبيوتر */
-
-    document.addEventListener(
-        "click",
-        () => {
-
-            startWeddingMusic();
-
-        },
-        {
-            once: true
-        }
-    );
-
+    // أول تفاعل من المستخدم
+    document.addEventListener("touchstart", playMusic, { once: true });
+    document.addEventListener("click", playMusic, { once: true });
+    document.addEventListener("pointerdown", playMusic, { once: true });
 }
 
 
