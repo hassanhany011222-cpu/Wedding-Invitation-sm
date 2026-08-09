@@ -1,7 +1,7 @@
 /* =====================================================
    Wedding Invitation
    Mohamed & Samah
-   Beige + Purple
+   Beige + Black
 ===================================================== */
 
 * {
@@ -21,7 +21,7 @@ body {
     font-family: "Cairo", sans-serif;
 
     background: #eadcc8;
-    color: #3d2940;
+    color: #181512;
 }
 
 
@@ -33,17 +33,15 @@ body {
 
     --beige: #eadcc8;
     --beige-light: #f3e8d7;
-    --beige-dark: #d8c3a8;
+    --beige-dark: #d6bea0;
 
-    --purple: #59405f;
-    --purple-dark: #3e2944;
-    --purple-light: #725675;
+    --black: #181512;
+    --black-soft: #292522;
 
-    --gold: #c9a45c;
-    --gold-light: #e1c985;
+    --gold: #c6a15b;
+    --gold-light: #dfc47f;
 
-    --text-dark: #3d2940;
-    --white: #fffaf3;
+    --white: #fffaf2;
 }
 
 
@@ -66,7 +64,6 @@ body {
     overflow: hidden;
 }
 
-
 .section-content {
     position: relative;
 
@@ -82,7 +79,7 @@ body {
 
 
 /* =====================================================
-   البيج
+   الخلفيات
 ===================================================== */
 
 .scene-beige {
@@ -93,20 +90,16 @@ body {
             var(--beige)
         );
 
-    color: var(--text-dark);
+    color: var(--black);
 }
 
-
-/* =====================================================
-   البنفسجي
-===================================================== */
 
 .scene-purple {
     background:
         radial-gradient(
             circle at center,
-            var(--purple-light),
-            var(--purple-dark)
+            #302c28,
+            #11100f
         );
 
     color: var(--white);
@@ -126,7 +119,7 @@ body {
     margin-bottom: 20px;
 
     text-shadow:
-        0 0 15px rgba(225, 201, 133, 0.35);
+        0 0 15px rgba(223, 196, 127, 0.35);
 }
 
 
@@ -139,11 +132,10 @@ body {
 
     font-size: clamp(24px, 4vw, 38px);
 
-    color: var(--gold-light);
+    color: var(--gold);
 
     margin-bottom: 30px;
 }
-
 
 .quran-box {
     max-width: 850px;
@@ -152,17 +144,16 @@ body {
 
     padding: 45px 30px;
 
-    border: 1px solid rgba(225, 201, 133, 0.45);
+    border: 1px solid rgba(198, 161, 91, 0.45);
 
     border-radius: 25px;
 
     background:
-        rgba(255, 255, 255, 0.06);
+        rgba(255, 255, 255, 0.05);
 
     box-shadow:
         0 15px 45px rgba(0, 0, 0, 0.15);
 }
-
 
 .quran-text {
     font-family: "Aref Ruqaa", serif;
@@ -171,9 +162,8 @@ body {
 
     line-height: 2;
 
-    color: #fffaf3;
+    color: var(--white);
 }
-
 
 .quran-source {
     margin-top: 25px;
@@ -192,7 +182,6 @@ body {
     text-align: center;
 }
 
-
 .hero-content {
     width: 100%;
     max-width: 1000px;
@@ -200,17 +189,15 @@ body {
     margin: auto;
 }
 
-
 .bismillah {
     font-family: "Aref Ruqaa", serif;
 
     font-size: clamp(24px, 4vw, 36px);
 
-    color: var(--purple);
+    color: var(--black);
 
     margin-bottom: 25px;
 }
-
 
 .gold-line {
     width: 150px;
@@ -228,17 +215,15 @@ body {
         );
 }
 
-
 .welcome-text {
     font-family: "Aref Ruqaa", serif;
 
     font-size: clamp(32px, 6vw, 60px);
 
-    color: var(--purple);
+    color: var(--black);
 
     margin-bottom: 15px;
 }
-
 
 .names {
     font-family: "Aref Ruqaa", serif;
@@ -247,12 +232,11 @@ body {
 
     line-height: 1.3;
 
-    color: var(--purple-dark);
+    color: var(--black);
 
     text-shadow:
-        0 5px 20px rgba(89, 64, 95, 0.15);
+        0 5px 20px rgba(0, 0, 0, 0.12);
 }
-
 
 .heart-between {
     display: inline-block;
@@ -263,51 +247,50 @@ body {
 
     margin: 0 20px;
 
-    animation: heartBeat 2s ease-in-out infinite;
+    animation:
+        heartBeat 2s ease-in-out infinite;
 }
-
 
 .invite-text {
     font-family: "Aref Ruqaa", serif;
 
     font-size: clamp(25px, 4vw, 40px);
 
-    color: var(--purple);
+    color: var(--black-soft);
 
     margin-top: 20px;
 }
 
 
 /* =====================================================
-   سهم التمرير
+   التمرير
 ===================================================== */
 
 .scroll-hint {
     margin-top: 70px;
 
-    color: var(--purple);
+    color: var(--black);
 
     font-size: 15px;
 }
-
 
 .scroll-arrow {
     font-size: 30px;
 
     margin-top: 8px;
 
-    animation: scrollDown 1.8s infinite;
+    animation:
+        scrollDown 1.8s infinite;
 }
 
 
 /* =====================================================
-   الموعد
+   العناوين
 ===================================================== */
 
 .date-scene h2,
 .venue-section h2,
-.rsvp-section h2,
-.footer-section h2 {
+.rsvp-section h2 {
     font-family: "Aref Ruqaa", serif;
 
     font-size: clamp(45px, 8vw, 80px);
@@ -331,11 +314,11 @@ body {
 
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 25px;
 }
-
 
 .info-card {
     padding: 35px 25px;
@@ -343,21 +326,20 @@ body {
     border-radius: 25px;
 
     background:
-        rgba(255, 255, 255, 0.08);
+        rgba(255, 255, 255, 0.07);
 
-    border: 1px solid rgba(225, 201, 133, 0.35);
+    border:
+        1px solid rgba(198, 161, 91, 0.35);
 
     box-shadow:
         0 15px 40px rgba(0, 0, 0, 0.15);
 }
-
 
 .info-icon {
     font-size: 38px;
 
     margin-bottom: 15px;
 }
-
 
 .card-title {
     color: var(--gold-light);
@@ -367,13 +349,11 @@ body {
     margin-bottom: 5px;
 }
 
-
 .card-subtitle {
     opacity: 0.8;
 
     margin-bottom: 10px;
 }
-
 
 .card-main {
     display: block;
@@ -382,7 +362,7 @@ body {
 
     font-size: clamp(27px, 4vw, 40px);
 
-    color: #fffaf3;
+    color: var(--white);
 }
 
 
@@ -394,7 +374,6 @@ body {
     margin-top: 20px;
 }
 
-
 .countdown-title {
     font-family: "Aref Ruqaa", serif;
 
@@ -404,7 +383,6 @@ body {
 
     margin-bottom: 25px;
 }
-
 
 .countdown {
     width: 100%;
@@ -421,19 +399,17 @@ body {
     gap: 15px;
 }
 
-
 .count-box {
     padding: 22px 10px;
 
     border-radius: 20px;
 
     background:
-        rgba(255, 255, 255, 0.08);
+        rgba(255, 255, 255, 0.07);
 
     border:
-        1px solid rgba(225, 201, 133, 0.3);
+        1px solid rgba(198, 161, 91, 0.3);
 }
-
 
 .count-number {
     display: block;
@@ -444,7 +420,6 @@ body {
 
     color: var(--gold-light);
 }
-
 
 .count-label {
     display: block;
@@ -465,17 +440,15 @@ body {
     text-align: center;
 }
 
-
 .venue-english {
     font-size: 18px;
 
-    color: var(--purple);
+    color: var(--black);
 
     margin-top: -25px;
 
     margin-bottom: 35px;
 }
-
 
 .venue-card {
     max-width: 750px;
@@ -487,21 +460,20 @@ body {
     background:
         rgba(255, 255, 255, 0.35);
 
-    border: 1px solid rgba(89, 64, 95, 0.15);
+    border:
+        1px solid rgba(0, 0, 0, 0.12);
 
     border-radius: 30px;
 
     box-shadow:
-        0 20px 50px rgba(89, 64, 95, 0.12);
+        0 20px 50px rgba(0, 0, 0, 0.10);
 }
-
 
 .venue-icon {
     font-size: 55px;
 
     margin-bottom: 20px;
 }
-
 
 .venue-address {
     font-family: "Aref Ruqaa", serif;
@@ -510,7 +482,7 @@ body {
 
     line-height: 1.8;
 
-    color: var(--purple-dark);
+    color: var(--black);
 
     margin-bottom: 30px;
 }
@@ -533,9 +505,9 @@ body {
 
     border-radius: 50px;
 
-    background: var(--purple);
+    background: var(--black);
 
-    color: #fffaf3;
+    color: var(--white);
 
     text-decoration: none;
 
@@ -546,12 +518,11 @@ body {
         box-shadow 0.3s ease;
 }
 
-
 .map-button:hover {
     transform: translateY(-4px);
 
     box-shadow:
-        0 10px 25px rgba(89, 64, 95, 0.3);
+        0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -563,7 +534,6 @@ body {
     text-align: center;
 }
 
-
 .rsvp-text {
     font-family: "Aref Ruqaa", serif;
 
@@ -571,11 +541,10 @@ body {
 
     line-height: 1.8;
 
-    color: #fffaf3;
+    color: var(--white);
 
     margin-bottom: 40px;
 }
-
 
 .attendance-button {
     border: none;
@@ -588,7 +557,7 @@ body {
 
     background: var(--gold);
 
-    color: var(--purple-dark);
+    color: var(--black);
 
     font-family: "Cairo", sans-serif;
 
@@ -597,21 +566,21 @@ body {
     font-weight: 600;
 
     box-shadow:
-        0 10px 30px rgba(201, 164, 92, 0.25);
+        0 10px 30px rgba(198, 161, 91, 0.25);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
 
-
 .attendance-button:hover {
-    transform: translateY(-5px) scale(1.03);
+    transform:
+        translateY(-5px)
+        scale(1.03);
 
     box-shadow:
-        0 15px 35px rgba(201, 164, 92, 0.35);
+        0 15px 35px rgba(198, 161, 91, 0.35);
 }
-
 
 .attendance-button span {
     margin-right: 8px;
@@ -637,7 +606,6 @@ body {
     z-index: 9999;
 }
 
-
 .celebration-item {
     position: absolute;
 
@@ -650,7 +618,6 @@ body {
 
     opacity: 0;
 }
-
 
 @keyframes celebrationExplosion {
 
@@ -677,7 +644,6 @@ body {
             rotate(360deg)
             scale(1);
     }
-
 }
 
 
@@ -701,7 +667,6 @@ body {
     z-index: 100;
 }
 
-
 .lantern {
     position: absolute;
 
@@ -717,16 +682,16 @@ body {
         linear-gradient(
             to bottom,
             #f2d98b,
-            #c39b4c
+            #b58b43
         );
 
     box-shadow:
-        0 0 18px rgba(225, 201, 133, 0.8);
+        0 0 18px
+        rgba(225, 201, 133, 0.8);
 
     animation:
         lanternGlow 2.5s ease-in-out infinite;
 }
-
 
 .lantern::before {
     content: "";
@@ -741,38 +706,40 @@ body {
 
     height: 15px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    background: var(--gold);
+    background:
+        var(--gold);
 }
-
 
 .lantern-1 {
     right: 8%;
+
     animation-delay: 0s;
 }
 
-
 .lantern-2 {
     right: 25%;
+
     animation-delay: 0.5s;
 }
 
-
 .lantern-3 {
     left: 50%;
+
     animation-delay: 1s;
 }
 
-
 .lantern-4 {
     left: 25%;
+
     animation-delay: 1.5s;
 }
 
-
 .lantern-5 {
     left: 8%;
+
     animation-delay: 2s;
 }
 
@@ -805,13 +772,11 @@ body {
     z-index: 10000;
 }
 
-
 .attendance-modal.show {
     opacity: 1;
 
     visibility: visible;
 }
-
 
 .modal-overlay {
     position: absolute;
@@ -819,12 +784,11 @@ body {
     inset: 0;
 
     background:
-        rgba(40, 25, 45, 0.75);
+        rgba(0, 0, 0, 0.78);
 
     backdrop-filter:
         blur(8px);
 }
-
 
 .modal-box {
     position: relative;
@@ -839,12 +803,15 @@ body {
 
     text-align: center;
 
-    background: var(--beige-light);
+    background:
+        var(--beige-light);
 
-    color: var(--purple-dark);
+    color:
+        var(--black);
 
     box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.35);
+        0 25px 80px
+        rgba(0, 0, 0, 0.35);
 
     transform:
         translateY(30px)
@@ -854,13 +821,11 @@ body {
         transform 0.4s ease;
 }
 
-
 .attendance-modal.show .modal-box {
     transform:
         translateY(0)
         scale(1);
 }
-
 
 .close-modal {
     position: absolute;
@@ -873,13 +838,12 @@ body {
 
     background: none;
 
-    color: var(--purple);
+    color: var(--black);
 
     font-size: 35px;
 
     cursor: pointer;
 }
-
 
 .modal-heart {
     font-size: 60px;
@@ -892,7 +856,6 @@ body {
         heartBeat 1.8s infinite;
 }
 
-
 .modal-box h2 {
     font-family: "Aref Ruqaa", serif;
 
@@ -901,24 +864,21 @@ body {
     margin-bottom: 15px;
 }
 
-
 .modal-box p {
     font-size: 19px;
 
     line-height: 1.8;
 }
 
-
 .modal-names {
     font-family: "Aref Ruqaa", serif;
 
     font-size: 35px;
 
-    color: var(--purple);
+    color: var(--black);
 
     margin: 20px 0;
 }
-
 
 .modal-button {
     border: none;
@@ -929,11 +889,14 @@ body {
 
     border-radius: 50px;
 
-    background: var(--purple);
+    background:
+        var(--black);
 
-    color: white;
+    color:
+        var(--white);
 
-    font-family: "Cairo", sans-serif;
+    font-family:
+        "Cairo", sans-serif;
 
     font-size: 17px;
 }
@@ -947,7 +910,6 @@ body {
     text-align: center;
 }
 
-
 .footer-heart {
     color: var(--gold);
 
@@ -957,24 +919,30 @@ body {
         heartBeat 2s infinite;
 }
 
-
 .footer-section h2 {
-    color: var(--purple);
+    font-family:
+        "Aref Ruqaa", serif;
+
+    color:
+        var(--black);
+
+    font-size:
+        clamp(45px, 8vw, 75px);
 
     margin-bottom: 15px;
 }
 
-
 .footer-section p {
-    font-family: "Aref Ruqaa", serif;
+    font-family:
+        "Aref Ruqaa", serif;
 
     font-size: 30px;
 
     line-height: 1.8;
 
-    color: var(--purple);
+    color:
+        var(--black);
 }
-
 
 .footer-line {
     width: 120px;
@@ -983,16 +951,19 @@ body {
 
     margin: 25px auto;
 
-    background: var(--gold);
+    background:
+        var(--gold);
 }
 
-
 .footer-small {
-    font-family: "Cairo", sans-serif !important;
+    font-family:
+        "Cairo", sans-serif !important;
 
-    font-size: 16px !important;
+    font-size:
+        16px !important;
 
-    color: var(--purple) !important;
+    color:
+        var(--black) !important;
 }
 
 
@@ -1004,15 +975,15 @@ body {
 
     0%,
     100% {
-        transform: scale(1);
+        transform:
+            scale(1);
     }
 
     50% {
-        transform: scale(1.18);
+        transform:
+            scale(1.18);
     }
-
 }
-
 
 @keyframes lanternGlow {
 
@@ -1034,25 +1005,24 @@ body {
             0 0 30px
             rgba(225, 201, 133, 0.95);
     }
-
 }
-
 
 @keyframes scrollDown {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform:
+            translateY(0);
 
         opacity: 0.6;
     }
 
     50% {
-        transform: translateY(10px);
+        transform:
+            translateY(10px);
 
         opacity: 1;
     }
-
 }
 
 
@@ -1070,7 +1040,6 @@ body {
         opacity 0.9s ease,
         transform 0.9s ease;
 }
-
 
 .section-reveal.visible {
     opacity: 1;
@@ -1093,13 +1062,11 @@ body {
             65px 18px;
     }
 
-
     .date-time-grid {
         grid-template-columns: 1fr;
 
         gap: 15px;
     }
-
 
     .countdown {
         grid-template-columns:
@@ -1108,17 +1075,15 @@ body {
         gap: 10px;
     }
 
-
     .info-card {
-        padding: 25px 15px;
+        padding:
+            25px 15px;
     }
-
 
     .quran-box {
         padding:
             30px 18px;
     }
-
 
     .quran-text {
         font-size: 27px;
@@ -1126,29 +1091,25 @@ body {
         line-height: 2;
     }
 
-
     .names {
         font-size:
             clamp(58px, 17vw, 90px);
     }
-
 
     .heart-between {
         margin:
             0 8px;
     }
 
-
     .venue-card {
         padding:
             30px 18px;
     }
 
-
     .venue-address {
-        font-size: 24px;
+        font-size:
+            24px;
     }
-
 
     .attendance-button {
         width: 90%;
@@ -1157,22 +1118,20 @@ body {
             16px 20px;
     }
 
-
     .modal-box {
         padding:
             40px 20px;
     }
 
-
     .modal-box h2 {
-        font-size: 35px;
+        font-size:
+            35px;
     }
-
 
     .modal-names {
-        font-size: 30px;
+        font-size:
+            30px;
     }
-
 
     .lantern {
         width: 26px;
@@ -1184,7 +1143,7 @@ body {
 
 
 /* =====================================================
-   شاشات الموبايل الصغيرة جدًا
+   موبايل صغير جدًا
 ===================================================== */
 
 @media (max-width: 390px) {
@@ -1194,34 +1153,34 @@ body {
             55px 14px;
     }
 
-
     .quran-text {
-        font-size: 24px;
+        font-size:
+            24px;
     }
-
 
     .names {
-        font-size: 58px;
+        font-size:
+            58px;
     }
-
 
     .count-number {
-        font-size: 32px;
+        font-size:
+            32px;
     }
-
 
     .count-label {
-        font-size: 13px;
+        font-size:
+            13px;
     }
-
 
     .venue-address {
-        font-size: 21px;
+        font-size:
+            21px;
     }
 
-
     .rsvp-text {
-        font-size: 25px;
+        font-size:
+            25px;
     }
 
 }
