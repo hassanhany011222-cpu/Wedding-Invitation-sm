@@ -1,18 +1,13 @@
 /* =====================================================
    Wedding Invitation
    Mohamed & Samah
-   Beige + Purple + Gold
-===================================================== */
-
-
-/* =====================================================
-   GENERAL
+   Beige + Purple
 ===================================================== */
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -20,773 +15,989 @@ html {
 }
 
 body {
-    margin: 0;
-    font-family: "Cairo", sans-serif;
+    direction: rtl;
     overflow-x: hidden;
-    background: #f3e4cf;
-    color: #3b2a2a;
-}
 
+    font-family: "Cairo", sans-serif;
 
-/* منع تحديد النص بشكل مزعج */
-
-::selection {
-    background: #c9a24e;
-    color: #fff4e3;
+    background: #eadcc8;
+    color: #3d2940;
 }
 
 
 /* =====================================================
-   SCENES
+   الألوان الأساسية
+===================================================== */
+
+:root {
+
+    --beige: #eadcc8;
+    --beige-light: #f3e8d7;
+    --beige-dark: #d8c3a8;
+
+    --purple: #59405f;
+    --purple-dark: #3e2944;
+    --purple-light: #725675;
+
+    --gold: #c9a45c;
+    --gold-light: #e1c985;
+
+    --text-dark: #3d2940;
+    --white: #fffaf3;
+}
+
+
+/* =====================================================
+   المشاهد
 ===================================================== */
 
 .scene {
     position: relative;
-    min-height: 100vh;
+
     width: 100%;
+    min-height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 90px 30px;
+
+    padding: 80px 25px;
+
     overflow: hidden;
 }
 
 
-/* المشاهد البيج */
+.section-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    text-align: center;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   البيج
+===================================================== */
 
 .scene-beige {
     background:
         radial-gradient(
-            circle at 20% 20%,
-            rgba(255,255,255,0.55),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #f3e4cf,
-            #ead8bd
+            circle at center,
+            var(--beige-light),
+            var(--beige)
         );
 
-    color: #4b3427;
+    color: var(--text-dark);
 }
 
 
-/* المشاهد الموف */
+/* =====================================================
+   البنفسجي
+===================================================== */
 
 .scene-purple {
     background:
         radial-gradient(
-            circle at 80% 20%,
-            rgba(201,162,78,0.15),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #5a315d,
-            #3e2042
+            circle at center,
+            var(--purple-light),
+            var(--purple-dark)
         );
 
-    color: #fff4e3;
+    color: var(--white);
 }
 
 
 /* =====================================================
-   CONTENT
+   الزخارف
 ===================================================== */
 
-.section-content {
-    width: min(1100px, 100%);
-    margin: auto;
-    text-align: center;
-    position: relative;
-    z-index: 5;
-}
+.ornament,
+.gold-symbol {
+    color: var(--gold-light);
 
-.hero-content {
-    width: min(1000px, 100%);
-    text-align: center;
-    position: relative;
-    z-index: 5;
-}
+    font-size: 38px;
 
-
-/* =====================================================
-   TYPOGRAPHY
-===================================================== */
-
-h1,
-h2,
-.names,
-.couple-name {
-    font-family: "Aref Ruqaa", serif;
-}
-
-h2 {
-    font-size: clamp(38px, 5vw, 68px);
-    margin: 15px 0 25px;
-}
-
-.small-title,
-.bismillah {
-    font-size: 20px;
     margin-bottom: 20px;
-}
 
-.welcome-text {
-    font-size: 28px;
-    margin-top: 25px;
-}
-
-.invite-text {
-    font-size: 23px;
-    margin-top: 15px;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero-section {
-    min-height: 100vh;
-}
-
-.names {
-    font-size: clamp(75px, 12vw, 150px);
-    line-height: 1.2;
-    margin: 20px 0;
-    color: #5a315d;
     text-shadow:
-        0 4px 20px rgba(90,49,93,0.18);
-}
-
-.heart-between {
-    color: #b56a6a;
-    font-family: sans-serif;
-    font-size: 0.5em;
-    display: inline-block;
-    margin: 0 15px;
-    animation: heartBeat 1.8s infinite;
-}
-
-.gold-line {
-    width: 120px;
-    height: 2px;
-    background: #c9a24e;
-    margin: 20px auto;
-}
-
-.scroll-hint {
-    margin-top: 70px;
-    opacity: 0.75;
-    font-size: 15px;
-}
-
-.scroll-arrow {
-    font-size: 28px;
-    margin-top: 10px;
-    animation: arrowMove 1.7s infinite;
+        0 0 15px rgba(225, 201, 133, 0.35);
 }
 
 
 /* =====================================================
-   DECORATIONS
+   الآية القرآنية
 ===================================================== */
-
-.gold-symbol,
-.ornament {
-    color: #c9a24e;
-    font-size: 42px;
-    margin-bottom: 10px;
-}
 
 .section-label {
-    font-size: 20px;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
+    font-family: "Aref Ruqaa", serif;
+
+    font-size: clamp(24px, 4vw, 38px);
+
+    color: var(--gold-light);
+
+    margin-bottom: 30px;
 }
 
-.scene-beige .section-label {
-    color: #8a6b45;
-}
-
-.scene-purple .section-label {
-    color: #e4c98b;
-}
-
-
-/* =====================================================
-   QURAN
-===================================================== */
 
 .quran-box {
-    max-width: 900px;
-    margin: 40px auto 0;
-    padding: 55px 45px;
-    border: 1px solid rgba(201,162,78,0.55);
-    border-radius: 30px;
-    background: rgba(255,255,255,0.06);
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 45px 30px;
+
+    border: 1px solid rgba(225, 201, 133, 0.45);
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
     box-shadow:
-        0 25px 70px rgba(0,0,0,0.18);
+        0 15px 45px rgba(0, 0, 0, 0.15);
 }
+
 
 .quran-text {
     font-family: "Aref Ruqaa", serif;
-    font-size: clamp(27px, 4vw, 44px);
+
+    font-size: clamp(28px, 5vw, 48px);
+
     line-height: 2;
+
+    color: #fffaf3;
 }
+
 
 .quran-source {
     margin-top: 25px;
-    color: #dfc58d;
-    font-size: 16px;
+
+    color: var(--gold-light);
+
+    font-size: 18px;
 }
 
 
 /* =====================================================
-   INVITATION
+   المشهد الترحيبي
 ===================================================== */
 
-.main-message {
-    font-size: 23px;
-    line-height: 2.2;
-    margin: 25px auto;
+.hero-section {
+    text-align: center;
 }
 
-.couple-card {
-    width: min(650px, 100%);
-    margin: 40px auto 25px;
-    padding: 30px;
-    border: 1px solid rgba(90,49,93,0.2);
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 35px;
-    background: rgba(255,255,255,0.35);
-    box-shadow: 0 20px 50px rgba(90,49,93,0.12);
+
+.hero-content {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: auto;
 }
 
-.couple-card span {
+
+.bismillah {
     font-family: "Aref Ruqaa", serif;
-    font-size: 55px;
-    color: #5a315d;
-}
 
-.couple-card strong {
-    color: #c9a24e;
-    font-size: 35px;
-}
+    font-size: clamp(24px, 4vw, 36px);
 
-.welcome-message {
-    font-size: 20px;
+    color: var(--purple);
+
+    margin-bottom: 25px;
 }
 
 
-/* =====================================================
-   DATE + TIME
-===================================================== */
+.gold-line {
+    width: 150px;
 
-.date-scene {
-    min-height: 100vh;
+    height: 2px;
+
+    margin: 0 auto 30px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            var(--gold),
+            transparent
+        );
 }
 
-.date-time-grid {
-    width: min(900px, 100%);
-    margin: 40px auto 35px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
 
-.info-card {
-    min-height: 260px;
-    padding: 35px 25px;
-    border-radius: 30px;
-    background: rgba(255,244,227,0.96);
-    color: #4b3427;
-    border: 1px solid rgba(201,162,78,0.4);
-    box-shadow:
-        0 20px 55px rgba(0,0,0,0.18);
+.welcome-text {
+    font-family: "Aref Ruqaa", serif;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    font-size: clamp(32px, 6vw, 60px);
 
-.info-icon {
-    font-size: 45px;
+    color: var(--purple);
+
     margin-bottom: 15px;
 }
 
-.card-title {
+
+.names {
     font-family: "Aref Ruqaa", serif;
+
+    font-size: clamp(65px, 11vw, 125px);
+
+    line-height: 1.3;
+
+    color: var(--purple-dark);
+
+    text-shadow:
+        0 5px 20px rgba(89, 64, 95, 0.15);
+}
+
+
+.heart-between {
+    display: inline-block;
+
+    color: var(--gold);
+
+    font-size: 0.65em;
+
+    margin: 0 20px;
+
+    animation: heartBeat 2s ease-in-out infinite;
+}
+
+
+.invite-text {
+    font-family: "Aref Ruqaa", serif;
+
+    font-size: clamp(25px, 4vw, 40px);
+
+    color: var(--purple);
+
+    margin-top: 20px;
+}
+
+
+/* =====================================================
+   سهم التمرير
+===================================================== */
+
+.scroll-hint {
+    margin-top: 70px;
+
+    color: var(--purple);
+
+    font-size: 15px;
+}
+
+
+.scroll-arrow {
     font-size: 30px;
+
+    margin-top: 8px;
+
+    animation: scrollDown 1.8s infinite;
+}
+
+
+/* =====================================================
+   الموعد
+===================================================== */
+
+.date-scene h2,
+.venue-section h2,
+.rsvp-section h2,
+.footer-section h2 {
+    font-family: "Aref Ruqaa", serif;
+
+    font-size: clamp(45px, 8vw, 80px);
+
+    color: var(--gold-light);
+
+    margin-bottom: 40px;
+}
+
+
+/* =====================================================
+   التاريخ والموعد
+===================================================== */
+
+.date-time-grid {
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 0 auto 50px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+.info-card {
+    padding: 35px 25px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(225, 201, 133, 0.35);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+.info-icon {
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+
+.card-title {
+    color: var(--gold-light);
+
+    font-size: 20px;
+
     margin-bottom: 5px;
 }
 
+
 .card-subtitle {
-    color: #8a6b45;
-    font-size: 18px;
-    margin-bottom: 8px;
+    opacity: 0.8;
+
+    margin-bottom: 10px;
 }
 
+
 .card-main {
-    font-size: 22px;
+    display: block;
+
+    font-family: "Aref Ruqaa", serif;
+
+    font-size: clamp(27px, 4vw, 40px);
+
+    color: #fffaf3;
 }
 
 
 /* =====================================================
-   COUNTDOWN
+   العداد
 ===================================================== */
 
 .countdown-area {
-    width: min(850px, 100%);
-    margin: 35px auto 0;
+    margin-top: 20px;
 }
+
 
 .countdown-title {
     font-family: "Aref Ruqaa", serif;
-    font-size: 32px;
+
+    font-size: 30px;
+
+    color: var(--gold-light);
+
     margin-bottom: 25px;
-    color: #f2dca7;
 }
 
+
 .countdown {
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: auto;
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
     gap: 15px;
 }
 
-.count-box {
-    min-height: 120px;
-    padding: 20px 10px;
-    border-radius: 22px;
-    background: rgba(255,244,227,0.95);
-    color: #4b3427;
-    border: 1px solid rgba(201,162,78,0.45);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.16);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.count-box {
+    padding: 22px 10px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid rgba(225, 201, 133, 0.3);
 }
+
 
 .count-number {
-    font-size: 38px;
-    font-weight: 700;
-    color: #5a315d;
+    display: block;
+
+    font-size: clamp(30px, 5vw, 50px);
+
+    font-weight: 600;
+
+    color: var(--gold-light);
 }
 
+
 .count-label {
+    display: block;
+
+    margin-top: 5px;
+
     font-size: 15px;
-    margin-top: 3px;
-    color: #80654d;
+
+    opacity: 0.8;
 }
 
 
 /* =====================================================
-   VENUE
+   مكان الحفل
 ===================================================== */
 
 .venue-section {
-    min-height: 100vh;
+    text-align: center;
 }
+
 
 .venue-english {
-    color: #987844;
     font-size: 18px;
-    margin-bottom: 25px;
+
+    color: var(--purple);
+
+    margin-top: -25px;
+
+    margin-bottom: 35px;
 }
+
 
 .venue-card {
-    width: min(750px, 100%);
-    margin: 30px auto;
-    padding: 50px 35px;
-    border-radius: 35px;
-    background: rgba(255,244,227,0.8);
-    border: 1px solid rgba(201,162,78,0.45);
+    max-width: 750px;
+
+    margin: auto;
+
+    padding: 45px 30px;
+
+    background:
+        rgba(255, 255, 255, 0.35);
+
+    border: 1px solid rgba(89, 64, 95, 0.15);
+
+    border-radius: 30px;
+
     box-shadow:
-        0 25px 70px rgba(90,49,93,0.13);
+        0 20px 50px rgba(89, 64, 95, 0.12);
 }
 
+
 .venue-icon {
-    font-size: 65px;
+    font-size: 55px;
+
     margin-bottom: 20px;
 }
 
+
 .venue-address {
-    font-size: 20px;
-    line-height: 2.2;
-    color: #6d5744;
+    font-family: "Aref Ruqaa", serif;
+
+    font-size: clamp(23px, 4vw, 34px);
+
+    line-height: 1.8;
+
+    color: var(--purple-dark);
+
+    margin-bottom: 30px;
 }
 
 
 /* =====================================================
-   GOOGLE MAPS BUTTON
+   زر الخريطة
 ===================================================== */
 
 .map-button {
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
+
     gap: 10px;
 
-    margin-top: 35px;
-    padding: 17px 38px;
+    padding: 15px 35px;
 
     border-radius: 50px;
 
-    background: #5a315d;
-    color: #fff4e3;
+    background: var(--purple);
+
+    color: #fffaf3;
 
     text-decoration: none;
 
     font-size: 18px;
-    font-weight: 600;
-
-    box-shadow:
-        0 12px 30px rgba(90,49,93,0.25);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
 
+
 .map-button:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+
     box-shadow:
-        0 18px 40px rgba(90,49,93,0.35);
+        0 10px 25px rgba(89, 64, 95, 0.3);
 }
 
 
 /* =====================================================
-   PHOTO
+   تأكيد الحضور
 ===================================================== */
 
-.photo-frame {
-    width: min(550px, 100%);
-    margin: 35px auto 20px;
-    padding: 12px;
-    border: 2px solid #c9a24e;
-    border-radius: 35px;
-    background: rgba(255,244,227,0.08);
-    box-shadow:
-        0 25px 60px rgba(0,0,0,0.25);
+.rsvp-section {
+    text-align: center;
 }
 
-.photo-frame img {
-    width: 100%;
-    display: block;
-    border-radius: 25px;
-}
-
-.photo-caption {
-    font-family: "Aref Ruqaa", serif;
-    font-size: 28px;
-    color: #e5c985;
-}
-
-
-/* =====================================================
-   RSVP
-===================================================== */
 
 .rsvp-text {
-    font-size: 21px;
-    line-height: 2;
-    margin: 20px 0 35px;
+    font-family: "Aref Ruqaa", serif;
+
+    font-size: clamp(25px, 5vw, 42px);
+
+    line-height: 1.8;
+
+    color: #fffaf3;
+
+    margin-bottom: 40px;
 }
+
 
 .attendance-button {
     border: none;
+
     cursor: pointer;
 
     padding: 18px 45px;
 
     border-radius: 50px;
 
-    background: #5a315d;
-    color: #fff4e3;
+    background: var(--gold);
+
+    color: var(--purple-dark);
 
     font-family: "Cairo", sans-serif;
+
     font-size: 20px;
+
     font-weight: 600;
 
     box-shadow:
-        0 15px 40px rgba(90,49,93,0.25);
+        0 10px 30px rgba(201, 164, 92, 0.25);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
 
-.attendance-button span {
-    margin-right: 8px;
-}
 
 .attendance-button:hover {
     transform: translateY(-5px) scale(1.03);
+
     box-shadow:
-        0 20px 50px rgba(90,49,93,0.35);
+        0 15px 35px rgba(201, 164, 92, 0.35);
 }
 
-.attendance-button:active {
-    transform: scale(0.96);
+
+.attendance-button span {
+    margin-right: 8px;
+
+    animation:
+        heartBeat 1.8s infinite;
 }
 
 
 /* =====================================================
-   FOOTER
-===================================================== */
-
-.footer-section {
-    min-height: 70vh;
-}
-
-.footer-heart {
-    font-size: 65px;
-    color: #c9a24e;
-    animation: heartBeat 1.8s infinite;
-}
-
-.footer-small {
-    color: #dfc58d;
-}
-
-.footer-line {
-    width: 100px;
-    height: 1px;
-    background: #c9a24e;
-    margin: 25px auto;
-}
-
-
-/* =====================================================
-   LANTERNS
-===================================================== */
-
-.lanterns {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 20;
-}
-
-.lantern {
-    position: absolute;
-    width: 25px;
-    height: 42px;
-    border-radius: 6px 6px 10px 10px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #c9a24e,
-            #8d6b2f
-        );
-
-    box-shadow:
-        0 0 15px rgba(255,215,100,0.55);
-
-    animation: lanternGlow 2.8s infinite alternate;
-}
-
-.lantern::before {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 9px;
-    top: -8px;
-    left: 7px;
-    border: 2px solid #c9a24e;
-    border-bottom: none;
-    border-radius: 10px 10px 0 0;
-}
-
-.lantern span {
-    position: absolute;
-    width: 9px;
-    height: 18px;
-    left: 8px;
-    top: 11px;
-    border-radius: 50%;
-    background: #fff1a8;
-    box-shadow:
-        0 0 15px #ffe9a3;
-}
-
-.lantern-1 {
-    top: 4%;
-    left: 5%;
-}
-
-.lantern-2 {
-    top: 15%;
-    left: 13%;
-    transform: scale(0.8);
-    animation-delay: 0.8s;
-}
-
-.lantern-3 {
-    top: 6%;
-    right: 6%;
-    animation-delay: 1.2s;
-}
-
-.lantern-4 {
-    top: 18%;
-    right: 14%;
-    transform: scale(0.8);
-    animation-delay: 1.8s;
-}
-
-.lantern-5 {
-    bottom: 8%;
-    right: 5%;
-    transform: scale(0.75);
-    animation-delay: 0.5s;
-}
-
-
-/* =====================================================
-   CELEBRATION
+   انفجار القلوب والورود
 ===================================================== */
 
 .celebration-container {
     position: fixed;
+
     inset: 0;
+
     pointer-events: none;
-    z-index: 9999;
+
     overflow: hidden;
+
+    z-index: 9999;
 }
+
 
 .celebration-item {
     position: absolute;
-    font-size: 28px;
+
     animation:
-        celebrationFly 1.8s ease-out forwards;
+        celebrationExplosion 2.2s ease-out forwards;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.3);
+
+    opacity: 0;
+}
+
+
+@keyframes celebrationExplosion {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.2);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            rotate(360deg)
+            scale(1);
+    }
+
 }
 
 
 /* =====================================================
-   MODAL
+   الفوانيس
+===================================================== */
+
+.lanterns {
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100px;
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+
+.lantern {
+    position: absolute;
+
+    top: 0;
+
+    width: 35px;
+
+    height: 55px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #f2d98b,
+            #c39b4c
+        );
+
+    box-shadow:
+        0 0 18px rgba(225, 201, 133, 0.8);
+
+    animation:
+        lanternGlow 2.5s ease-in-out infinite;
+}
+
+
+.lantern::before {
+    content: "";
+
+    position: absolute;
+
+    top: -15px;
+
+    left: 50%;
+
+    width: 2px;
+
+    height: 15px;
+
+    transform: translateX(-50%);
+
+    background: var(--gold);
+}
+
+
+.lantern-1 {
+    right: 8%;
+    animation-delay: 0s;
+}
+
+
+.lantern-2 {
+    right: 25%;
+    animation-delay: 0.5s;
+}
+
+
+.lantern-3 {
+    left: 50%;
+    animation-delay: 1s;
+}
+
+
+.lantern-4 {
+    left: 25%;
+    animation-delay: 1.5s;
+}
+
+
+.lantern-5 {
+    left: 8%;
+    animation-delay: 2s;
+}
+
+
+/* =====================================================
+   صندوق تأكيد الحضور
 ===================================================== */
 
 .attendance-modal {
     position: fixed;
+
     inset: 0;
-    z-index: 10000;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    visibility: hidden;
+    padding: 20px;
+
     opacity: 0;
 
+    visibility: hidden;
+
     transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+
+    z-index: 10000;
 }
 
+
 .attendance-modal.show {
-    visibility: visible;
     opacity: 1;
+
+    visibility: visible;
 }
+
 
 .modal-overlay {
     position: absolute;
+
     inset: 0;
-    background: rgba(30,15,30,0.7);
-    backdrop-filter: blur(8px);
+
+    background:
+        rgba(40, 25, 45, 0.75);
+
+    backdrop-filter:
+        blur(8px);
 }
+
 
 .modal-box {
     position: relative;
-    z-index: 2;
 
-    width: min(480px, calc(100% - 35px));
+    width: 100%;
 
-    padding: 45px 30px;
+    max-width: 500px;
+
+    padding: 50px 30px;
+
+    border-radius: 30px;
 
     text-align: center;
 
-    border-radius: 35px;
+    background: var(--beige-light);
 
-    background: #fff4e3;
-
-    color: #4b3427;
+    color: var(--purple-dark);
 
     box-shadow:
-        0 30px 100px rgba(0,0,0,0.35);
+        0 25px 80px rgba(0, 0, 0, 0.35);
 
-    transform: scale(0.8);
-    transition: transform 0.4s ease;
+    transform:
+        translateY(30px)
+        scale(0.95);
+
+    transition:
+        transform 0.4s ease;
 }
+
 
 .attendance-modal.show .modal-box {
-    transform: scale(1);
+    transform:
+        translateY(0)
+        scale(1);
 }
+
 
 .close-modal {
     position: absolute;
+
     top: 15px;
-    left: 18px;
+
+    left: 20px;
 
     border: none;
-    background: transparent;
 
-    font-size: 30px;
+    background: none;
+
+    color: var(--purple);
+
+    font-size: 35px;
+
     cursor: pointer;
-
-    color: #5a315d;
 }
+
 
 .modal-heart {
-    font-size: 65px;
-    color: #b56a6a;
-    animation: heartBeat 1.5s infinite;
+    font-size: 60px;
+
+    color: var(--gold);
+
+    margin-bottom: 15px;
+
+    animation:
+        heartBeat 1.8s infinite;
 }
+
 
 .modal-box h2 {
-    font-size: 38px;
-    color: #5a315d;
-    margin: 10px 0;
+    font-family: "Aref Ruqaa", serif;
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
 }
+
 
 .modal-box p {
-    font-size: 18px;
-    line-height: 2;
+    font-size: 19px;
+
+    line-height: 1.8;
 }
 
+
 .modal-names {
-    margin: 20px 0;
     font-family: "Aref Ruqaa", serif;
+
     font-size: 35px;
-    color: #5a315d;
+
+    color: var(--purple);
+
+    margin: 20px 0;
 }
+
 
 .modal-button {
     border: none;
+
     cursor: pointer;
 
-    padding: 13px 30px;
+    padding: 13px 35px;
 
-    border-radius: 40px;
+    border-radius: 50px;
 
-    background: #5a315d;
-    color: #fff4e3;
+    background: var(--purple);
+
+    color: white;
 
     font-family: "Cairo", sans-serif;
+
     font-size: 17px;
 }
 
 
 /* =====================================================
-   ANIMATIONS
+   الخاتمة
+===================================================== */
+
+.footer-section {
+    text-align: center;
+}
+
+
+.footer-heart {
+    color: var(--gold);
+
+    font-size: 70px;
+
+    animation:
+        heartBeat 2s infinite;
+}
+
+
+.footer-section h2 {
+    color: var(--purple);
+
+    margin-bottom: 15px;
+}
+
+
+.footer-section p {
+    font-family: "Aref Ruqaa", serif;
+
+    font-size: 30px;
+
+    line-height: 1.8;
+
+    color: var(--purple);
+}
+
+
+.footer-line {
+    width: 120px;
+
+    height: 2px;
+
+    margin: 25px auto;
+
+    background: var(--gold);
+}
+
+
+.footer-small {
+    font-family: "Cairo", sans-serif !important;
+
+    font-size: 16px !important;
+
+    color: var(--purple) !important;
+}
+
+
+/* =====================================================
+   الحركات
 ===================================================== */
 
 @keyframes heartBeat {
@@ -796,186 +1007,220 @@ h2 {
         transform: scale(1);
     }
 
-    15% {
-        transform: scale(1.15);
-    }
-
-    30% {
-        transform: scale(1);
-    }
-
-    45% {
-        transform: scale(1.1);
-    }
-}
-
-
-@keyframes arrowMove {
-
-    0% {
-        transform: translateY(0);
-        opacity: 0.5;
-    }
-
     50% {
-        transform: translateY(10px);
-        opacity: 1;
+        transform: scale(1.18);
     }
 
-    100% {
-        transform: translateY(0);
-        opacity: 0.5;
-    }
 }
 
 
 @keyframes lanternGlow {
 
-    0% {
-        opacity: 0.45;
-        filter: brightness(0.75);
+    0%,
+    100% {
+        opacity: 0.65;
+
+        filter:
+            brightness(0.85);
     }
 
     50% {
         opacity: 1;
-        filter: brightness(1.3);
+
+        filter:
+            brightness(1.35);
+
+        box-shadow:
+            0 0 30px
+            rgba(225, 201, 133, 0.95);
     }
 
-    100% {
-        opacity: 0.55;
-        filter: brightness(0.85);
-    }
 }
 
 
-@keyframes celebrationFly {
+@keyframes scrollDown {
 
-    0% {
-        transform:
-            translate(0, 0)
-            rotate(0deg)
-            scale(0.5);
-
-        opacity: 1;
-    }
-
-    70% {
-        opacity: 1;
-    }
-
+    0%,
     100% {
-        transform:
-            translate(
-                var(--x),
-                var(--y)
-            )
-            rotate(720deg)
-            scale(1.2);
+        transform: translateY(0);
 
-        opacity: 0;
+        opacity: 0.6;
     }
+
+    50% {
+        transform: translateY(10px);
+
+        opacity: 1;
+    }
+
 }
 
 
 /* =====================================================
-   SCROLL REVEAL
+   ظهور المشاهد مع الاسكرول
 ===================================================== */
 
 .section-reveal {
     opacity: 0;
-    transform: translateY(50px);
+
+    transform:
+        translateY(50px);
+
     transition:
-        opacity 1s ease,
-        transform 1s ease;
+        opacity 0.9s ease,
+        transform 0.9s ease;
 }
+
 
 .section-reveal.visible {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
 }
 
 
 /* =====================================================
-   RESPONSIVE
+   الموبايل
 ===================================================== */
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
 
     .scene {
-        padding: 75px 20px;
+        min-height: 100svh;
+
+        padding:
+            65px 18px;
     }
+
 
     .date-time-grid {
         grid-template-columns: 1fr;
+
+        gap: 15px;
     }
+
 
     .countdown {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
     }
+
+
+    .info-card {
+        padding: 25px 15px;
+    }
+
+
+    .quran-box {
+        padding:
+            30px 18px;
+    }
+
+
+    .quran-text {
+        font-size: 27px;
+
+        line-height: 2;
+    }
+
 
     .names {
-        font-size: 75px;
+        font-size:
+            clamp(58px, 17vw, 90px);
     }
 
-    .couple-card {
-        gap: 18px;
+
+    .heart-between {
+        margin:
+            0 8px;
     }
 
-    .couple-card span {
-        font-size: 42px;
-    }
 
     .venue-card {
-        padding: 35px 20px;
+        padding:
+            30px 18px;
     }
 
-    .lantern-2,
-    .lantern-4 {
-        display: none;
+
+    .venue-address {
+        font-size: 24px;
+    }
+
+
+    .attendance-button {
+        width: 90%;
+
+        padding:
+            16px 20px;
+    }
+
+
+    .modal-box {
+        padding:
+            40px 20px;
+    }
+
+
+    .modal-box h2 {
+        font-size: 35px;
+    }
+
+
+    .modal-names {
+        font-size: 30px;
+    }
+
+
+    .lantern {
+        width: 26px;
+
+        height: 43px;
     }
 
 }
 
 
-@media (max-width: 480px) {
+/* =====================================================
+   شاشات الموبايل الصغيرة جدًا
+===================================================== */
+
+@media (max-width: 390px) {
 
     .scene {
-        padding: 65px 15px;
+        padding:
+            55px 14px;
     }
 
-    .names {
-        font-size: 60px;
-    }
-
-    .heart-between {
-        margin: 0 5px;
-    }
-
-    .welcome-text {
-        font-size: 23px;
-    }
-
-    .invite-text {
-        font-size: 18px;
-    }
-
-    .count-number {
-        font-size: 30px;
-    }
-
-    .count-box {
-        min-height: 105px;
-    }
-
-    .card-main {
-        font-size: 18px;
-    }
-
-    .quran-box {
-        padding: 35px 20px;
-    }
 
     .quran-text {
+        font-size: 24px;
+    }
+
+
+    .names {
+        font-size: 58px;
+    }
+
+
+    .count-number {
+        font-size: 32px;
+    }
+
+
+    .count-label {
+        font-size: 13px;
+    }
+
+
+    .venue-address {
+        font-size: 21px;
+    }
+
+
+    .rsvp-text {
         font-size: 25px;
     }
 
