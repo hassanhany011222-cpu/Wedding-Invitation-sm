@@ -17,20 +17,16 @@ html {
 body {
     direction: rtl;
     overflow-x: hidden;
-
     font-family: "Cairo", sans-serif;
-
     background: #eadcc8;
     color: #181512;
 }
-
 
 /* =====================================================
    الألوان الأساسية
 ===================================================== */
 
 :root {
-
     --beige: #eadcc8;
     --beige-light: #f3e8d7;
     --beige-dark: #d6bea0;
@@ -44,14 +40,12 @@ body {
     --white: #fffaf2;
 }
 
-
 /* =====================================================
    المشاهد
 ===================================================== */
 
 .scene {
     position: relative;
-
     width: 100%;
     min-height: 100vh;
 
@@ -60,23 +54,18 @@ body {
     justify-content: center;
 
     padding: 80px 25px;
-
     overflow: hidden;
 }
 
 .section-content {
     position: relative;
-
     width: 100%;
     max-width: 1100px;
-
     margin: auto;
 
     text-align: center;
-
     z-index: 2;
 }
-
 
 /* =====================================================
    الخلفيات
@@ -93,7 +82,6 @@ body {
     color: var(--black);
 }
 
-
 .scene-purple {
     background:
         radial-gradient(
@@ -105,7 +93,6 @@ body {
     color: var(--white);
 }
 
-
 /* =====================================================
    الزخارف
 ===================================================== */
@@ -113,15 +100,12 @@ body {
 .ornament,
 .gold-symbol {
     color: var(--gold-light);
-
     font-size: 38px;
-
     margin-bottom: 20px;
 
     text-shadow:
         0 0 15px rgba(223, 196, 127, 0.35);
 }
-
 
 /* =====================================================
    الآية القرآنية
@@ -129,27 +113,21 @@ body {
 
 .section-label {
     font-family: "Aref Ruqaa", serif;
-
     font-size: clamp(24px, 4vw, 38px);
 
     color: var(--gold);
-
     margin-bottom: 30px;
 }
 
 .quran-box {
     max-width: 850px;
-
     margin: auto;
-
     padding: 45px 30px;
 
     border: 1px solid rgba(198, 161, 91, 0.45);
-
     border-radius: 25px;
 
-    background:
-        rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05);
 
     box-shadow:
         0 15px 45px rgba(0, 0, 0, 0.15);
@@ -159,7 +137,6 @@ body {
     font-family: "Aref Ruqaa", serif;
 
     font-size: clamp(28px, 5vw, 48px);
-
     line-height: 2;
 
     color: var(--white);
@@ -167,12 +144,9 @@ body {
 
 .quran-source {
     margin-top: 25px;
-
     color: var(--gold-light);
-
     font-size: 18px;
 }
-
 
 /* =====================================================
    المشهد الترحيبي
@@ -185,7 +159,6 @@ body {
 .hero-content {
     width: 100%;
     max-width: 1000px;
-
     margin: auto;
 }
 
@@ -193,7 +166,6 @@ body {
     font-family: "Aref Ruqaa", serif;
 
     font-size: clamp(24px, 4vw, 36px);
-
     color: var(--black);
 
     margin-bottom: 25px;
@@ -201,7 +173,6 @@ body {
 
 .gold-line {
     width: 150px;
-
     height: 2px;
 
     margin: 0 auto 30px;
@@ -219,7 +190,6 @@ body {
     font-family: "Aref Ruqaa", serif;
 
     font-size: clamp(32px, 6vw, 60px);
-
     color: var(--black);
 
     margin-bottom: 15px;
@@ -229,7 +199,6 @@ body {
     font-family: "Aref Ruqaa", serif;
 
     font-size: clamp(65px, 11vw, 125px);
-
     line-height: 1.3;
 
     color: var(--black);
@@ -242,7 +211,6 @@ body {
     display: inline-block;
 
     color: var(--gold);
-
     font-size: 0.65em;
 
     margin: 0 20px;
@@ -257,10 +225,8 @@ body {
     font-size: clamp(25px, 4vw, 40px);
 
     color: var(--black-soft);
-
     margin-top: 20px;
 }
-
 
 /* =====================================================
    التمرير
@@ -268,21 +234,17 @@ body {
 
 .scroll-hint {
     margin-top: 70px;
-
     color: var(--black);
-
     font-size: 15px;
 }
 
 .scroll-arrow {
     font-size: 30px;
-
     margin-top: 8px;
 
     animation:
         scrollDown 1.8s infinite;
 }
-
 
 /* =====================================================
    العناوين
@@ -300,22 +262,18 @@ body {
     margin-bottom: 40px;
 }
 
-
 /* =====================================================
    التاريخ والموعد
 ===================================================== */
 
 .date-time-grid {
     width: 100%;
-
     max-width: 850px;
 
     margin: 0 auto 50px;
 
     display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 25px;
 }
@@ -337,7 +295,6 @@ body {
 
 .info-icon {
     font-size: 38px;
-
     margin-bottom: 15px;
 }
 
@@ -345,13 +302,11 @@ body {
     color: var(--gold-light);
 
     font-size: 20px;
-
     margin-bottom: 5px;
 }
 
 .card-subtitle {
     opacity: 0.8;
-
     margin-bottom: 10px;
 }
 
@@ -364,7 +319,6 @@ body {
 
     color: var(--white);
 }
-
 
 /* =====================================================
    العداد
@@ -386,15 +340,12 @@ body {
 
 .countdown {
     width: 100%;
-
     max-width: 850px;
 
     margin: auto;
 
     display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 15px;
 }
@@ -431,7 +382,6 @@ body {
     opacity: 0.8;
 }
 
-
 /* =====================================================
    مكان الحفل
 ===================================================== */
@@ -446,7 +396,6 @@ body {
     color: var(--black);
 
     margin-top: -25px;
-
     margin-bottom: 35px;
 }
 
@@ -471,7 +420,6 @@ body {
 
 .venue-icon {
     font-size: 55px;
-
     margin-bottom: 20px;
 }
 
@@ -487,7 +435,6 @@ body {
     margin-bottom: 30px;
 }
 
-
 /* =====================================================
    زر الخريطة
 ===================================================== */
@@ -496,7 +443,6 @@ body {
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 10px;
@@ -525,7 +471,6 @@ body {
         0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-
 /* =====================================================
    تأكيد الحضور
 ===================================================== */
@@ -548,7 +493,6 @@ body {
 
 .attendance-button {
     border: none;
-
     cursor: pointer;
 
     padding: 18px 45px;
@@ -562,7 +506,6 @@ body {
     font-family: "Cairo", sans-serif;
 
     font-size: 20px;
-
     font-weight: 600;
 
     box-shadow:
@@ -588,7 +531,6 @@ body {
     animation:
         heartBeat 1.8s infinite;
 }
-
 
 /* =====================================================
    انفجار القلوب والورود
@@ -646,7 +588,6 @@ body {
     }
 }
 
-
 /* =====================================================
    الفوانيس
 ===================================================== */
@@ -655,11 +596,9 @@ body {
     position: fixed;
 
     top: 0;
-
     left: 0;
 
     width: 100%;
-
     height: 100px;
 
     pointer-events: none;
@@ -673,7 +612,6 @@ body {
     top: 0;
 
     width: 35px;
-
     height: 55px;
 
     border-radius: 8px;
@@ -699,11 +637,9 @@ body {
     position: absolute;
 
     top: -15px;
-
     left: 50%;
 
     width: 2px;
-
     height: 15px;
 
     transform:
@@ -715,34 +651,28 @@ body {
 
 .lantern-1 {
     right: 8%;
-
     animation-delay: 0s;
 }
 
 .lantern-2 {
     right: 25%;
-
     animation-delay: 0.5s;
 }
 
 .lantern-3 {
     left: 50%;
-
     animation-delay: 1s;
 }
 
 .lantern-4 {
     left: 25%;
-
     animation-delay: 1.5s;
 }
 
 .lantern-5 {
     left: 8%;
-
     animation-delay: 2s;
 }
-
 
 /* =====================================================
    صندوق تأكيد الحضور
@@ -756,13 +686,11 @@ body {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     padding: 20px;
 
     opacity: 0;
-
     visibility: hidden;
 
     transition:
@@ -774,7 +702,6 @@ body {
 
 .attendance-modal.show {
     opacity: 1;
-
     visibility: visible;
 }
 
@@ -794,7 +721,6 @@ body {
     position: relative;
 
     width: 100%;
-
     max-width: 500px;
 
     padding: 50px 30px;
@@ -831,7 +757,6 @@ body {
     position: absolute;
 
     top: 15px;
-
     left: 20px;
 
     border: none;
@@ -901,7 +826,6 @@ body {
     font-size: 17px;
 }
 
-
 /* =====================================================
    الخاتمة
 ===================================================== */
@@ -966,7 +890,6 @@ body {
         var(--black) !important;
 }
 
-
 /* =====================================================
    الحركات
 ===================================================== */
@@ -1025,7 +948,6 @@ body {
     }
 }
 
-
 /* =====================================================
    ظهور المشاهد مع الاسكرول
 ===================================================== */
@@ -1047,7 +969,6 @@ body {
     transform:
         translateY(0);
 }
-
 
 /* =====================================================
    الموبايل
@@ -1138,9 +1059,7 @@ body {
 
         height: 43px;
     }
-
 }
-
 
 /* =====================================================
    موبايل صغير جدًا
@@ -1182,5 +1101,4 @@ body {
         font-size:
             25px;
     }
-
 }
